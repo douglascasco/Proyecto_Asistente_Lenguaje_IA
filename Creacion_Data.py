@@ -11,8 +11,9 @@ mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 
 hands = mp_hands.Hands(static_image_mode=True, min_detection_confidence=0.3)
-
-DATA_DIR = './data'
+#Si ocupo crear otro data set usar otra ruta aqui
+# DATA_DIR = './data' 
+DATA_DIR = './data_numeros/Numeros'
 
 data = []
 labels = []
@@ -44,12 +45,8 @@ for dir_ in os.listdir(DATA_DIR):
             
             data.append(data_aux)
             labels.append(dir_)
-            """ 
-            plt.figure()
-            plt.imshow(img_rgb)
-            plt.show()  
-            """       
-f = open('data.pickle', 'wb')
+                
+f = open('data_numeros.pickle', 'wb')
 pickle.dump({'data': data, 'labels': labels}, f)
 
 f.close()
